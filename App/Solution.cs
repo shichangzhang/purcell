@@ -4,13 +4,14 @@ public class Solution
 {
     public static void Main()
     {
-        var input = Console.ReadLine();
+        IInput input = new ConsoleInput();
+        IOutput output = new ConsoleOutput();
 
-        if (input != null) {
-            var numbers = input.Split(" ").Select(int.Parse).ToArray();
-            var result = Solution.Solve(numbers);
-            Console.WriteLine(result);
-        }
+        var numbers = input.Read();
+
+        var result = Solution.Solve(numbers);
+
+        output.Write(result);
     }
 
     public static int Solve(int[] numbers)
